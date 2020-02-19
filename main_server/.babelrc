@@ -1,22 +1,26 @@
 {
-	"presets": [
-		["env", {
-			"targets": {
-				"node": "current"
-			}
-		}]
-	],
-	"plugins": [
-		"transform-runtime",
-		"transform-object-rest-spread",
-		[
-			"module-resolver", {
-				"alias": {
-					"@core": "./src/core",
-					"@db": "./src/db",
-					"@error-type": "./src/ekyc_error/type"
-				}
-			}
-		]
-	]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-object-rest-spread",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@core": "./src/core",
+          "@db": "./src/db",
+          "@error-type": "./src/error_code/type"
+        }
+      }
+    ]
+  ]
 }
