@@ -43,6 +43,17 @@ router.get('/get_container', async (req, res, next) => {
 	}
 });
 
+router.post('/file_upload', async (req, res, next) => {
+	try {
+		const uploadBlobResponse = await file.fileUpload(req.body);
+
+		res.send(uploadBlobResponse);
+		next();
+	} catch (error) {
+		next(error);
+	}
+});
+
 router.get('/:namespace/:identifier', validateParams, async (req, res, next) => {
 	try {
 		// const identityResult = await fileManage.getIdentity(req.params);

@@ -20,7 +20,7 @@ export async function createContainer(containerName) {
 
 export async function getContainers() {
 	let items =[];
-	
+
 	const iter = azure.instance().listContainers();
 
 	let containerItem = await iter.next();
@@ -30,6 +30,14 @@ export async function getContainers() {
 	}
 
 	return items;
+}
+
+export async function fileUpload(containerName, fileName, data) {
+	const containerClient = await azure.instance().getContainerClient(containerName);
+	const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+	const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+
+	return uploadBlobResponse;
 }
 
 export async function getDopa(query) {
