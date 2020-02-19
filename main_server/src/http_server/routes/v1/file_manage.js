@@ -1,6 +1,6 @@
 import express from 'express';
 
-import * as fileManage from '@core/file_manage';
+import * as file from '@core/file_manage';
 
 import {
 	validateBody,
@@ -12,7 +12,11 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
 	try {
-		const ping = fileManage.ping();
+		const ping = file.ping();
+
+		const createContainer = await file.createContainer();
+
+		console.log(createContainer);
 
 		res.send(ping);
 		next();

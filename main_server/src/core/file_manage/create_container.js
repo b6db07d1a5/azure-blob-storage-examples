@@ -7,7 +7,7 @@ import * as db from '@db';
 
 async function createContainer(args) {
 
-	const container = db.createContainer();
+	const container = await db.createContainer();
 
 	return 'gg';
 
