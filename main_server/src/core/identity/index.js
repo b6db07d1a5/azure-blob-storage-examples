@@ -11,18 +11,14 @@ import createIdentity from './create_identity';
 import updateIdentity from './update_identity';
 import deleteIdentity from './delete_identity';
 
-import createContainer from './create_container';
-
 export {
 	getIdentity,
 	getIdentities,
 	createIdentity,
 	updateIdentity,
-	deleteIdentity,
-	createContainer
+	deleteIdentity
 };
 
 export function ping() {
-	createContainer('xxx');
 	return 'Hello World!!';
 }
