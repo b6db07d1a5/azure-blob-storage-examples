@@ -1,11 +1,14 @@
 import sql from './mysql';
+import azure from './azure';
 
 export function initialize() {
-	sql.connect();
+	azure.initialize();
+	// sql.connect();
 }
 
 export function instance() {
-	return sql.getInstance();
+	return azure.instance();
+	// return sql.getInstance();
 }
 
 export async function getDopa(query) {
