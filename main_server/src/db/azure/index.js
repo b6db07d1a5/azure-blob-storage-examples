@@ -1,9 +1,9 @@
-import { BlobServiceClient } from "@azure/storage-blob";
+import { BlobServiceClient } from '@azure/storage-blob';
 
-const uuidv1 = require("uuid/v1");
+import uuidv1 from 'uuid/v1';
 
 async function main() {
-  console.log("Azure Blob storage v12 - JavaScript quickstart sample");
+  console.log('Azure Blob storage v12 - JavaScript quickstart sample');
   // Quick start code goes here
   // Create the BlobServiceClient object which will be used to create a container client
   const blobServiceClient = await BlobServiceClient.fromConnectionString(
@@ -11,10 +11,10 @@ async function main() {
   );
 
   // Create a unique name for the container
-  const containerName = "quickstart" + uuidv1();
+  const containerName = 'quickstart' + uuidv1();
 
-  console.log("\nCreating container...");
-  console.log("\t", containerName);
+  console.log('\nCreating container...');
+  console.log('\t', containerName);
 
   // Get a reference to a container
   const containerClient = await blobServiceClient.getContainerClient(
@@ -24,11 +24,11 @@ async function main() {
   // Create the container
   const createContainerResponse = await containerClient.create();
   console.log(
-    "Container was created successfully. requestId: ",
+    'Container was created successfully. requestId: ',
     createContainerResponse.requestId
   );
 }
 
 main()
-  .then(() => console.log("Done"))
+  .then(() => console.log('Done'))
   .catch(ex => console.log(ex.message));
