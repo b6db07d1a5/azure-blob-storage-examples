@@ -28,7 +28,3 @@ async function main() {
     createContainerResponse.requestId
   );
 }
-
-main()
-  .then(() => console.log('Done'))
-  .catch(ex => console.log(ex.message));
