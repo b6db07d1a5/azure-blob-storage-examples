@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 import * as httpServer from './http_server';
-import * as db from './db'
+import * as db from './db';
 
 async function initialize() {
 	httpServer.initialize();
