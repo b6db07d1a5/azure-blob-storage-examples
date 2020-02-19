@@ -14,11 +14,18 @@ router.get('/', async (req, res, next) => {
 	try {
 		const ping = file.ping();
 
-		const createContainer = await file.createContainer();
-
-		console.log(createContainer);
-
 		res.send(ping);
+		next();
+	} catch (error) {
+		next(error);
+	}
+});
+
+router.post('/create_container', async (req, res, next) => {
+	try {
+		const createContainerResponse = await file.createContainer(req.body);
+
+		res.send(createContainerResponse);
 		next();
 	} catch (error) {
 		next(error);

@@ -11,8 +11,11 @@ export function instance() {
 	// return sql.getInstance();
 }
 
-export async function createContainer() {
-	console.log(azure.instance().accountName+ ' <<==== Accout name');
+export async function createContainer(containerName) {
+	const containerClient = await azure.instance().getContainerClient(containerName);
+	const createContainerResponse = await containerClient.create();
+
+	return createContainerResponse;
 }
 
 export async function getDopa(query) {

@@ -5,11 +5,11 @@ import errorType from '@error-type';
 
 import * as db from '@db';
 
-async function createContainer(args) {
+async function createContainer({ containerName }) {
 
-	const container = await db.createContainer();
+	const createContainerResponse = await db.createContainer(containerName);
 
-	return 'gg';
+	return createContainerResponse;
 
 // Create the BlobServiceClient object which will be used to create a container client
 	// const blobServiceClient = await BlobServiceClient.fromConnectionString(process.env.AZURE_STORAGE_CONNECTION_STRING);
