@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api-ekyc:
+    image: ekyc/api:latest
+    environment:
+        - SERVER_PORT=xxxx
+        - API_SERVER_ADDRESS=xxxx
+        - NDID_API_CALLBACK_IP=xxxx
+        - NDID_API_CALLBACK_PORT=xxxx
+    entrypoint: /api/docker/start-api.sh
+    volumes:
+        - ./start-api.sh:/api/docker/start-api.sh:ro
+    ports:
+      - "4000:3000"
+
+    networks:
+      - ekyc-network
+networks:
+  ekyc-network:

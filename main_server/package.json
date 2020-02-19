@@ -1,0 +1,42 @@
+{
+	"name": "ekyc",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "rm -rf build/ && npx babel src -d ./build/ --source-maps inline --verbose",
+		"start": "npm run build && node build/server.js",
+		"dev": "nodemon --require babel-register ./src/server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ajv": "^6.4.0",
+		"babel-runtime": "^6.26.0",
+		"body-parser": "^1.18.2",
+		"develop": "^1.0.0",
+		"dotenv": "^7.0.0",
+		"express": "^4.16.3",
+		"moment": "^2.24.0",
+		"morgan": "^1.9.0",
+		"mysql2": "^1.6.5",
+		"node-fetch": "^2.1.2",
+		"nodemon": "^1.19.1",
+		"sequelize": "^5.10.2",
+		"socket.io": "^2.1.0",
+		"source-map-support": "^0.5.6",
+		"uuid": "^3.3.2"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-eslint": "^8.2.2",
+		"babel-plugin-module-resolver": "^3.1.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-env": "^1.6.1",
+		"babel-register": "^6.24.1",
+		"eslint": "^4.19.1",
+		"eslint-plugin-babel": "^5.0.0"
+	}
+}
