@@ -11,6 +11,7 @@ async function createContainer(args) {
 // Create the BlobServiceClient object which will be used to create a container client
 	const blobServiceClient = await BlobServiceClient.fromConnectionString(process.env.AZURE_STORAGE_CONNECTION_STRING);
 
+	console.log(blobServiceClient.accountName);
 	// Create a unique name for the container
 	const containerName = 'quickstart' + uuidv1();
 
