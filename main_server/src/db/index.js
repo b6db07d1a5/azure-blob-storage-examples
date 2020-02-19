@@ -18,6 +18,20 @@ export async function createContainer(containerName) {
 	return createContainerResponse;
 }
 
+export async function getContainers() {
+	let items =[];
+	
+	const iter = azure.instance().listContainers();
+
+	let containerItem = await iter.next();
+	while (!containerItem.done) {
+		items.push(containerItem);
+		containerItem = await iter.next();
+	}
+
+	return items;
+}
+
 export async function getDopa(query) {
 	const {
 		dopa: dopaModel

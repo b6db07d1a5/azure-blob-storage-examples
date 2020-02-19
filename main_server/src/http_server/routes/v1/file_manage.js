@@ -32,6 +32,17 @@ router.post('/create_container', async (req, res, next) => {
 	}
 });
 
+router.get('/get_container', async (req, res, next) => {
+	try {
+		const getContainerResponse = await file.getContainers();
+
+		res.send(getContainerResponse);
+		next();
+	} catch (error) {
+		next(error);
+	}
+});
+
 router.get('/:namespace/:identifier', validateParams, async (req, res, next) => {
 	try {
 		// const identityResult = await fileManage.getIdentity(req.params);
