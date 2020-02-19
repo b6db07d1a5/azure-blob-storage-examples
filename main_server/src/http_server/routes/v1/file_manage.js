@@ -54,75 +54,86 @@ router.post('/file_upload', async (req, res, next) => {
 	}
 });
 
-router.get('/:namespace/:identifier', validateParams, async (req, res, next) => {
+router.get('/get_file/:container', async (req, res, next) => {
 	try {
-		// const identityResult = await fileManage.getIdentity(req.params);
+		const getFileResponse = await file.getFiles(req.params);
 
-		// res.send(identityResult);
-
+		res.send(getFileResponse);
 		next();
 	} catch (error) {
 		next(error);
 	}
 });
 
-router.get('/list/:namespace/:limit/:offset?', validateParams, async (req, res, next) => {
-	try {
+// router.get('/:namespace/:identifier', validateParams, async (req, res, next) => {
+// 	try {
+// 		// const identityResult = await fileManage.getIdentity(req.params);
 
-		// const identityResults = await fileManage.getIdentities(req.params);
+// 		// res.send(identityResult);
 
-		// res.send(identityResults);
+// 		next();
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// });
 
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
+// router.get('/list/:namespace/:limit/:offset?', validateParams, async (req, res, next) => {
+// 	try {
 
-router.post('/create_identity', validateBody, async (req, res, next) => {
-	try {
+// 		// const identityResults = await fileManage.getIdentities(req.params);
 
-		// const createResult = await fileManage.createIdentity(req.body);
+// 		// res.send(identityResults);
 
-		// res.send(createResult);
+// 		next();
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// });
 
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
+// router.post('/create_identity', validateBody, async (req, res, next) => {
+// 	try {
 
-router.post('/update_identity/:namespace/:identifier', validateParams, validateBody, async (req, res, next) => {
-	try {
+// 		// const createResult = await fileManage.createIdentity(req.body);
 
-		// const {
-		// 	params,
-		// 	body
-		// } = req;
+// 		// res.send(createResult);
 
-		// const updateResult = await identity.updateIdentity({
-		// 	...params,
-		// 	...body
-		// });
+// 		next();
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// });
 
-		// res.send(updateResult);
+// router.post('/update_identity/:namespace/:identifier', validateParams, validateBody, async (req, res, next) => {
+// 	try {
 
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
+// 		// const {
+// 		// 	params,
+// 		// 	body
+// 		// } = req;
 
-router.post('/delete_identity/:namespace/:identifier', validateParams, async (req, res, next) => {
-	try {
-		// const deleteResult = await identity.deleteIdentity(req.params);
+// 		// const updateResult = await identity.updateIdentity({
+// 		// 	...params,
+// 		// 	...body
+// 		// });
 
-		// res.send(deleteResult);
+// 		// res.send(updateResult);
 
-		next();
-	} catch (error) {
-		next(error);
-	}
-});
+// 		next();
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// });
+
+// router.post('/delete_identity/:namespace/:identifier', validateParams, async (req, res, next) => {
+// 	try {
+// 		// const deleteResult = await identity.deleteIdentity(req.params);
+
+// 		// res.send(deleteResult);
+
+// 		next();
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// });
 
 export default router;

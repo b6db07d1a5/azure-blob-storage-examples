@@ -40,6 +40,21 @@ export async function fileUpload(containerName, fileName, data) {
 	return uploadBlobResponse;
 }
 
+export async function getFiles(containerName) {
+	let items =[];
+
+	const containerClient = await azure.instance().getContainerClient(containerName);
+
+	let iter = containerClient.listBlobsFlat();
+	let blobItem = await iter.next();
+	while (!blobItem.done) {
+		items.push(blobItem);
+		blobItem = await iter.next();
+	}
+
+	return items;
+}
+
 export async function getDopa(query) {
 	const {
 		dopa: dopaModel
