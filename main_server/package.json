@@ -22,7 +22,7 @@
 		"moment": "^2.24.0",
 		"morgan": "^1.9.0",
 		"mysql2": "^1.6.5",
-		"node-fetch": "^2.1.2",
+		"node-fetch": "^2.6.1",
 		"nodemon": "^1.19.1",
 		"sequelize": "^5.10.2",
 		"socket.io": "^2.1.0",
